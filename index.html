@@ -1,0 +1,52 @@
+<HTML>
+    <HEAD>
+     <Script language='javascript'>
+    
+    function ConvertirEnDollars()
+    {
+    if (isNaN(Form1.Euros.value) == true)
+    {
+    alert('Merci de saisir un nombre.');
+    Form1.Euros.value = '1.00';
+    }
+    else
+    {
+    <!--fonction lambda-->
+    const c2= valeur => valeur * 1.16 ;
+    Form1.Dollars.value = (c2(Form1.Euros.value)) ;
+    }
+    }
+    
+    function ConvertirEnEuros()
+    {
+    if (isNaN(Form1.Dollars.value) == true)
+    {
+    alert('Merci de saisir un nombre. Conversion Impossible.');
+    Form1.Dollars.value = Form1.Euros.value * 1.16 ;
+    }
+    else
+    {
+    Form1.Euros.value = Form1.Dollars.value / 1.16 ;
+    }
+    }
+    
+     </Script>
+    </HEAD>
+    <BODY onLoad='ConvertirEnDollars()'>
+     <center>
+      <div id='bloc'>
+        <h2 style="font-weight: bold; color: #008000;">Converter Euro <--> Dollar</h2>
+       <br>
+       <FORM Name='Form1' action='convertisseur.html' style="border : 5px solid #008000" >
+        <a style="font-weight: bold; color: #008000;">Euro</a>
+        <br>
+        <input type='text' Name='Euros' onKeyUp='ConvertirEnDollars()' Value='1'>
+        <br>
+        <a style="font-weight: bold; color: #008000;">Dollar</a>
+        <br>
+        <input type ='text' Name='Dollars' onKeyUp='ConvertirEnEuros()'>
+       </FORM>
+      </div>
+     </center>
+    </BODY>
+</HTML>
